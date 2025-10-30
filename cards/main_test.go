@@ -1,8 +1,11 @@
 package main
 
 import (
+	"os"
 	"testing"
 )
+
+const decktestFilename = "_decktesting"
 
 func TestNewDeck(t *testing.T) {
 	d := newDeck()
@@ -18,4 +21,18 @@ func TestNewDeck(t *testing.T) {
 	if d[len(d)-1] != "Four of Clubs" {
 		t.Errorf("Expected last card of Four of Clubs, but got %v", d[len(d)-1])
 	}
+}
+
+func TestDeckToFileAndeNewDeckFromFile(t *testing.T) {
+	os.Remove(decktestFilename)
+
+	deck := newDeck()
+	deck.saveToFile(decktestFilename)
+
+	loadedDeck := newDeckFromFile(decktestFilename)
+
+	if len(loadedDeck) != len(deck) {
+		t.Errorf("Expected Length of %v got %v", len(deck), len(loadedDeck))
+	}
+	os.Remove(decktestFilename)
 }

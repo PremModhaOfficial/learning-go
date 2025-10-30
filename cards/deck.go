@@ -18,7 +18,7 @@ func (d deck) suffle() {
 	}
 }
 
-func (d deck) deal(size int) (deck, deck) {
+func deal(d deck, size int) (deck, deck) {
 	return d[:size], d[size:]
 }
 

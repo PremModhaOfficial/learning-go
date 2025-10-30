@@ -1,0 +1,53 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	fib := fibCached()
+	for i := 1; i <= 100000; i++ {
+		fmt.Println(i, fib(int64(i)))
+	}
+}
+
+// func fib(number int) int {
+// 	baseCase := map[int]int{
+// 		1: 1,
+// 		2: 1,
+// 	}
+//
+// 	if number < 2 {
+// 		return baseCase[number]
+// 	}
+//
+// 	return fib(number-1) + fib(number-2)
+// }
+
+// func fib(n int) int {
+// 	return fibCached()(n)
+// }
+
+func fibCached() func(int64) int64 {
+	cache := []int64{
+		0, 1,
+	}
+
+	fib := func(n int64) int64 {
+		if n <= 1 {
+			return n
+		}
+		if int64(len(cache)) < n {
+			return cache[n]
+		} else {
+			lastElement := int64(len(cache) - 1)
+			for i := lastElement; i < n; i++ {
+				cache = append(cache, cache[i]+cache[i-1])
+			}
+		}
+
+		return cache[n]
+	}
+
+	return fib
+}
