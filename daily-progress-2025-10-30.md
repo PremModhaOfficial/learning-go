@@ -1,11 +1,6 @@
 # Daily Learning Progress Report
-
 **Date:** 2025-10-30
-**SDE Intern:** prem.modha@motadata.com
-**Git Commit:** 289dad5c
-
 ---
-
 ## Learning Progress
 
 ### READ
@@ -21,6 +16,7 @@
 ---
 
 ## CODE
+**Git:** https://github.com/PremModhaOfficial/learning-go/blob/master/dataStructures/map/main.go
 
 ### concor/ - Concurrency
 - **concurrentFib()** - Fibonacci with goroutines, channels, WaitGroup, shared cache
