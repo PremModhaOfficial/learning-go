@@ -3,4 +3,8 @@ cards/progress_report.md
 cards/progress_report.org
 cards/report.md
 bookstore/.mcp/chroma_data
+
 bookstore/main
+.mcp/chroma_data
+bookstore/.mcp/chroma_data
+concor/.mcp/chroma_data/chroma.sqlite3

@@ -46,7 +46,7 @@ func GetAllBooks() []Book {
 	return result
 }
 
-func GetBookById(Id int64) (*Book, error) {
+func GetBookByID(Id int64) (*Book, error) {
 	mu.RLock()
 	defer mu.RUnlock()
 	book, exists := books[Id]

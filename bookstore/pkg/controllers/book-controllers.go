@@ -23,7 +23,7 @@ func GetBookByID(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	bookDetails, err := models.GetBookById(ID)
+	bookDetails, err := models.GetBookByID(ID)
 	if err != nil {
 		w.WriteHeader(http.StatusNotFound)
 		json.NewEncoder(w).Encode(map[string]string{"error": err.Error()})
@@ -82,7 +82,7 @@ func UpdateBook(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(err)
 		return
 	}
-	oldBook, err := models.GetBookById(bookID)
+	oldBook, err := models.GetBookByID(bookID)
 	if err != nil {
 		w.WriteHeader(http.StatusNotFound)
 		json.NewEncoder(w).Encode(map[string]string{"error": err.Error()})
